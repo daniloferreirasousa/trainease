@@ -3,6 +3,7 @@ import StarterIntro from "../screens/StarterIntro";
 import StarterName from "../screens/StarterName";
 import StarterDays from "../screens/StarterDays";
 import StarterLevel from "../screens/StarterLevel";
+import StarterRecommendations from "../screens/StarterRecommendations";
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ const StarterStack = () => {
             <Stack.Screen name="StarterName" component={StarterName} />
             <Stack.Screen name="StarterDays" component={StarterDays} />
             <Stack.Screen name="StarterLevel" component={StarterLevel} />
+            <Stack.Screen name="StarterRecommendations" component={StarterRecommendations} />
         </Stack.Navigator>
     );
 }

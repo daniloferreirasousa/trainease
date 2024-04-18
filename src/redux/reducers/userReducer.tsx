@@ -4,7 +4,7 @@ interface User {
     name: string,
     level: string, //beginner' | 'intermediate' | 'advanced'
     workoutDays: number[], // 0-6 (Semana começa no Domingo)
-    myWorkouts: string[],
+    myWorkouts: [],
     lastWorkout: string | null, // ID
     dailyProgress: string[],
 }
@@ -29,10 +29,18 @@ const slice = createSlice({
         },
         setLevel: (state, action: PayloadAction<{level: string}>) => {
             state.level = action.payload.level;
+        },
+        addWorkout: (state, action: PayloadAction<{workout}>) => {
+            if(state.myWorkouts.findIndex(i => i.id === action.payload.workout.id) < 0) {
+                state.myWorkouts.push(action.payload.workout);
+            }
+        },
+        delWorkout: (state, action: PayloadAction<{workout}>) => {
+            state.myWorkouts = state.myWorkouts?.filter(i => i.id != action.payload.workout.id);
         }
     }
 });
 
-export const { setName, setWorkoutDays, setLevel } = slice.actions;
+export const { setName, setWorkoutDays, setLevel, addWorkout, delWorkout } = slice.actions;
 
 export default slice.reducer;

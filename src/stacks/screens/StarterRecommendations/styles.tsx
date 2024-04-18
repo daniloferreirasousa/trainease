@@ -13,15 +13,10 @@ const styles = StyleSheet.create({
         color: '#333',
         marginBottom: 30,
         textAlign: 'center',
-
     },
-    boldText: {
-        fontWeight: 'bold',
+    workoutsList: {
+        width: '100%',
     },
-    levelArea: {
-        width: '100%'
-
-    }
 
 });
 
