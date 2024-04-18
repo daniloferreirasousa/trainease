@@ -36,7 +36,7 @@ const slice = createSlice({
             }
         },
         delWorkout: (state, action: PayloadAction<{workout}>) => {
-            state.myWorkouts = state.myWorkouts?.filter(i => i.id != action.payload.workout.id);
+            state.myWorkouts = state.myWorkouts.filter(i => i.id != action.payload.workout.id);
         }
     }
 });
