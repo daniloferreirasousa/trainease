@@ -9,9 +9,6 @@ export default () => {
     return (
         <HomeStack.Navigator 
             initialRouteName="Home"
-            screenOptions={{
-                header: () => null,
-            }}
         >
             <HomeStack.Screen name="Home" component={Home} />
         </HomeStack.Navigator>
