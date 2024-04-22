@@ -14,7 +14,7 @@ const initialState: User = {
     workoutDays: [],
     myWorkouts: [],
     lastWorkout: null,
-    dailyProgress: ['2024-04-14', '2024-04-13']
+    dailyProgress: ['2024-04-16', '2024-04-17']
 }
 
 const slice = createSlice({
