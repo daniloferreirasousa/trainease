@@ -7,13 +7,13 @@ import styles from "./styles";
 import HomeMonthScroll from "../../../components/HomeComponents/HomeMonthScroll";
 import HomeDaysScroll from "../../../components/HomeComponents/HomeDaysScroll";
 import HomeDaysStatus from "../../../components/HomeComponents/HomeDaysStatus";
+import { addProgress, delProgress } from "../../../redux/reducers/userReducer";
 
 const Home = (props) => {
 
     const navigation = useNavigation();
     const dispatch = useDispatch();
 
-   
     const ConfigButton = () => {
         const btnAction = () => {
             navigation.navigate('HomeConfig');
@@ -55,10 +55,17 @@ const Home = (props) => {
                 dailyProgress={props.dailyProgress}
                 workoutDays={props.workoutDays}
             />
-            <HomeDaysStatus />
+            <HomeDaysStatus 
+                selectedMonth={selectedMonth}
+                selectedDay={selectedDay}
+                setSelectedDay={setSelectedDay}
+                dailyProgress={props.dailyProgress}
+                workoutDays={props.workoutDays}
 
-            <Text>Mês: {selectedMonth}</Text>
-            <Text>Dia: {selectedDay}</Text>
+                addProgress={props.addProgress}
+                delProgress={props.delProgress}
+                gotToWorkout={()=>props.navigation.navigate('WorkoutStack')}
+            />
 
             <View style={styles.legendArea}>
                 <Text style={styles.legendText}>Legenda:</Text>
@@ -99,4 +106,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, { addProgress, delProgress })(Home);

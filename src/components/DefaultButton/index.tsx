@@ -8,13 +8,34 @@ export default (props) => {
     const fontColor = props.fontColor ?? "#000";
     const underlayColor = props.underlayColor ?? '#000';
     const marginBottom = props.marginBottom ?? 0;
+    const marginTop = props.marginTop ?? 0;
 
     return (
         <TouchableHighlight 
-            style={[styles.defaultButton, {width: width, backgroundColor: bgColor, marginBottom: marginBottom}]}
+            onPress={props.onPress}
+            style={
+                [
+                    styles.defaultButton,
+                    {
+                        width: width,
+                        backgroundColor: bgColor,
+                        marginBottom: marginBottom,
+                        marginTop: marginTop
+                    }
+                ]
+            }
             underlayColor={underlayColor}
-            onPress={props.onPress}>
-            <Text style={[styles.buttonText, {color: fontColor}]}>{props.title}</Text>
+        >
+
+            <Text style={
+                [
+                    styles.buttonText,
+                    {color: fontColor}
+                ]
+            }>
+                {props.title}
+            </Text>
+
         </TouchableHighlight>
     )
 }

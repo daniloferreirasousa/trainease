@@ -14,7 +14,7 @@ const initialState: User = {
     workoutDays: [],
     myWorkouts: [],
     lastWorkout: null,
-    dailyProgress: ['2024-04-16', '2024-04-17']
+    dailyProgress: []
 }
 
 const slice = createSlice({
@@ -37,10 +37,18 @@ const slice = createSlice({
         },
         delWorkout: (state, action: PayloadAction<{workout}>) => {
             state.myWorkouts = state.myWorkouts.filter(i => i.id != action.payload.workout.id);
+        },
+        addProgress: (state, action: PayloadAction<{date}>) => {
+            if(!state.dailyProgress.includes(action.payload.date)) {
+                state.dailyProgress.push(action.payload.date);
+            }
+        },
+        delProgress: (state, action: PayloadAction<{date}>) => {
+            state.dailyProgress = state.dailyProgress.filter(i => i != action.payload.date);
         }
     }
 });
 
-export const { setName, setWorkoutDays, setLevel, addWorkout, delWorkout } = slice.actions;
+export const { setName, setWorkoutDays, setLevel, addWorkout, delWorkout, addProgress, delProgress } = slice.actions;
 
 export default slice.reducer;
